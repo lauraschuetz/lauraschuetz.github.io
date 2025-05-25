@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laura Schütz - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: rgb(0, 0, 0);
+            background-color: #fff;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: flex-start;
+        }
+
+        .bio-image {
+            flex: 0 0 200px;
+        }
+
+        .bio-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .bio-content {
+            flex: 1;
+        }
+
+        .bio-content h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .bio-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .bio-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .bio-links a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #f8f9fa;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .bio-links a:hover {
+            background-color: #e9ecef;
+            border-color: #adb5bd;
+            transform: translateY(-1px);
+        }
+
+        /* Publications Section */
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+
+        .publication {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .publication:hover {
+            background-color: #f8f9fa;
+            border-color: #dee2e6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .pub-image {
+            flex: 0 0 150px;
+        }
+
+        .pub-image img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+
+        .pub-content {
+            flex: 1;
+        }
+
+        .pub-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .pub-content h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .pub-content h3 a:hover {
+            color: #3498db;
+        }
+
+        .pub-venue {
+            font-weight: 600;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .pub-authors {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Art Projects Section */
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .art-project {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .art-project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .art-project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .art-project-content {
+            padding: 20px;
+        }
+
+        .art-project h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .art-project p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #ecf0f1;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .bio-section {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .bio-image {
+                align-self: center;
+            }
+
+            .bio-content h1 {
+                font-size: 2rem;
+            }
+
+            .publication {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .pub-image {
+                align-self: center;
+            }
+
+            .art-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Bio Section -->
+        <section class="bio-section">
+            <div class="bio-image">
+                <img src="https://via.placeholder.com/200x200/ddd/999?text=Your+Photo" alt="Your Name">
+            </div>
+            <div class="bio-content">
+                <h1>Your Name</h1>
+                <p>I am a [Your Title/Position] at [Your Institution]. My research focuses on [your research areas]. I am passionate about [your interests] and have published work in [relevant areas].</p>
+                <p>Add another paragraph about your background, education, or current work here. Keep it concise but informative.</p>
+                <div class="bio-links">
+                    <a href="cv.pdf" target="_blank">📄 CV</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">💼 LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=youruser" target="_blank">🎓 Google Scholar</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section class="section">
+            <h2 class="section-title">Publications</h2>
+            
+            <article class="publication">
+                <div class="pub-image">
+                    <img src="https://via.placeholder.com/150x100/e8f4fd/4a90e2?text=Paper+1" alt="Publication 1">
+                </div>
+                <div class="pub-content">
+                    <h3><a href="https://example.com/paper1">Your Paper Title: A Novel Approach to Something Important</a></h3>
+                    <div class="pub-venue">Conference Name 2024</div>
+                    <div class="pub-authors">Your Name, Co-Author Name, Another Author</div>
+                </div>
+            </article>
+
+            <article class="publication">
+                <div class="pub-image">
+                    <img src="https://via.placeholder.com/150x100/f0f8e8/7cb342?text=Paper+2" alt="Publication 2">
+                </div>
+                <div class="pub-content">
+                    <h3><a href="https://example.com/paper2">Another Research Paper: Exploring Advanced Methods</a></h3>
+                    <div class="pub-venue">Journal Name 2023</div>
+                    <div class="pub-authors">Co-Author Name, Your Name, Third Author</div>
+                </div>
+            </article>
+
+            <article class="publication">
+                <div class="pub-image">
+                    <img src="https://via.placeholder.com/150x100/fff3e0/ff9800?text=Paper+3" alt="Publication 3">
+                </div>
+                <div class="pub-content">
+                    <h3><a href="https://example.com/paper3">Third Publication: Innovative Solutions for Complex Problems</a></h3>
+                    <div class="pub-venue">Workshop at Major Conference 2023</div>
+                    <div class="pub-authors">Your Name, Collaborator One, Collaborator Two</div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Art Projects Section -->
+        <section class="section">
+            <h2 class="section-title">Art Projects</h2>
+            <div class="art-grid">
+                <div class="art-project">
+                    <img src="https://via.placeholder.com/300x200/fce4ec/e91e63?text=Art+Project+1" alt="Art Project 1">
+                    <div class="art-project-content">
+                        <h4>Project Title One</h4>
+                        <p>Description of your art project. This could be digital art, photography, installations, or any creative work you'd like to showcase.</p>
+                    </div>
+                </div>
+                
+                <div class="art-project">
+                    <img src="https://via.placeholder.com/300x200/e8f5e8/4caf50?text=Art+Project+2" alt="Art Project 2">
+                    <div class="art-project-content">
+                        <h4>Project Title Two</h4>
+                        <p>Another creative project description. You can include the medium, inspiration, or context for each piece.</p>
+                    </div>
+                </div>
+                
+                <div class="art-project">
+                    <img src="https://via.placeholder.com/300x200/e3f2fd/2196f3?text=Art+Project+3" alt="Art Project 3">
+                    <div class="art-project-content">
+                        <h4>Project Title Three</h4>
+                        <p>Description of your third art project. Feel free to add more projects by copying this structure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
